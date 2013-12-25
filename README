@@ -1,0 +1,15 @@
+# Description
+
+This is a Bash shell script that is mainly intended for backing up Mercurial repositories from a Mercurial server to an Amazon S3 bucket.
+
+Currently, the script only works on Red Hat based distributions.
+
+The script executes following:
+
+1. Stops the Apache server
+2. Copies repositories to a working directory
+3. Starts the Apache server
+4. Packages (tar.gz) repositories to a date stamped archive
+5. Uploads the archive to an Amazon S3 bucket
+
+You need to have s3cmd installed and configured on your system.
