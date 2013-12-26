@@ -98,7 +98,7 @@ shutdown_http()
 	if [ $(ps -ef | grep -v grep | grep $HTTPSERVER | wc -l) -gt 0 ]
 	then
 		log "Web server is running, stopping it now."
-		error_message=$(service $HTTPSERVER stop)
+		error_message=$(/sbin/service $HTTPSERVER stop)
 		status=$?
 		if [ $status -eq 0 ]
 		then
@@ -136,7 +136,7 @@ start_http()
 	if [ $(ps -ef | grep -v grep | grep $HTTPSERVER | wc -l) -eq 0 ]
 	then
 		log "Web server is not running, starting it now."
-		error_message=$(service $HTTPSERVER start)
+		error_message=$(/sbin/service $HTTPSERVER start)
 		status=$?
 		if [ $status -eq 0 ]
 		then
